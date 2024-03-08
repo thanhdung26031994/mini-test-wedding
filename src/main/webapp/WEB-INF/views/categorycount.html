@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+  <title>List Category</title>
 </head>
 <body>
-$END$
+<h3>Category</h3>
+<h1>Thống kê tổng số tiền của từng danh mục.</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name Category</th>
+    <th>Total Amount</th>
+  </tr>
+  </thead>
+  <tbody th:each="c: ${categoryCount}">
+  <tr>
+    <td th:text="${c.getCategoryName()}"></td>
+    <td th:text="${c.getTotalAmount()}"></td>
+  </tr>
+  </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>
